@@ -32,9 +32,9 @@ rm -rf /data/zookeeper/*
 nohup $KAFKA_HOME/bin/kafka-server-start.sh $KAFKA_HOME/config/server.properties &
 
 # prepare kafka topic and data
-$KAFKA_HOME/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 3 --topic kylin_streaming_topic
+# $KAFKA_HOME/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 3 --topic kylin_streaming_topic
 
-while :
-do
-    sleep 1
-done
+# while :
+# do
+#     sleep 1
+# done
