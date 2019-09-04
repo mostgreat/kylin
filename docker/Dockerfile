@@ -77,7 +77,10 @@ RUN wget https://archive.apache.org/dist/kafka/$KAFKA_VERSION/kafka_2.11-$KAFKA_
     && tar -zxvf /home/admin/kafka_2.11-$KAFKA_VERSION.tgz \
     && rm -f /home/admin/kafka_2.11-$KAFKA_VERSION.tgz
 
+# copy deploy source
+COPY ./build_image.sh /home/admin/
 RUN sh ./build_image.sh
+
 # copy kylin source code
 COPY ./kylin /home/admin/kylin_sourcecode
 RUN sed -i -e 's#<!--<version>3.4.1</version>-->#<version>3.4.1</version>#g' /home/admin/kylin_sourcecode/pom.xml \
