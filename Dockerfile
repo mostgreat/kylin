@@ -78,7 +78,7 @@ RUN wget https://archive.apache.org/dist/kafka/$KAFKA_VERSION/kafka_2.11-$KAFKA_
     && rm -f /home/admin/kafka_2.11-$KAFKA_VERSION.tgz
 
 # copy kylin source code
-COPY ./kylin /home/admin/kylin_sourcecode
+COPY ./ /home/admin/kylin_sourcecode
 RUN sed -i -e 's#<!--<version>3.4.1</version>-->#<version>3.4.1</version>#g' /home/admin/kylin_sourcecode/pom.xml \
     && echo "kylin.engine.spark-conf.spark.executor.memory=1G" >> /home/admin/kylin_sourcecode/build/conf/kylin.properties \
     && echo "kylin.engine.spark-conf-mergedict.spark.executor.memory=1.5G" >> /home/admin/kylin_sourcecode/build/conf/kylin.properties
